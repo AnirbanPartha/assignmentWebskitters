@@ -306,6 +306,8 @@ export default function ProductDashboard() {
   const onSubmit = () => {
     try {
       // console.log("productDataJson====>", productDataJson);
+      if(productDataJson.name == "" || productDataJson.price == "" || productDataJson.offerPrice == "")
+        return;
       var json = productDataJson;
       json.img = uploadedFiles.file;
       // setProductDataJson({...productDataJson, image: uploadedFiles.file});
@@ -325,6 +327,8 @@ export default function ProductDashboard() {
   const onEdit = () => {
     try {
       // console.log("productDataJson====>", productDataJson);
+      if(selectedData.name == "" || selectedData.price == "" || selectedData.offerPrice == "")
+        return;
       var json = selectedData;
       json.img = uploadedFiles.file;
       dispatch(updateProductById(selectedData.id, json));
